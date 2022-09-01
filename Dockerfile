@@ -1,3 +1,10 @@
+FROM node:18-alpine3.15 as dev
+WORKDIR /app-in-development
+COPY app-in-development/ ./
+
+EXPOSE 3000
+CMD ["yarn", "dev"]
+
 FROM node:18-alpine3.15 as dependencies
 WORKDIR /app-in-development
 COPY app-in-development/package.json app-in-development/yarn.lock ./
